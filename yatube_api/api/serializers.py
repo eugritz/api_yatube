@@ -28,7 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
         default=serializers.CurrentUserDefault(),
     )
     post = serializers.PrimaryKeyRelatedField(read_only=True, required=False)
-    
+
     class Meta:
         model = Comment
         fields = '__all__'
