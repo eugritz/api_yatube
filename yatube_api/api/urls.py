@@ -2,8 +2,12 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework.authtoken import views
 
+from .viewsets import GroupViewSet, PostViewSet
+
 
 router = routers.DefaultRouter()
+router.register('groups', GroupViewSet)
+router.register('posts', PostViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
