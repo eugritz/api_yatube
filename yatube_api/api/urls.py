@@ -2,12 +2,13 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework.authtoken import views
 
-from .viewsets import GroupViewSet, PostViewSet
+from .viewsets import GroupViewSet, PostViewSet, CommentViewSet
 
 
 router = routers.DefaultRouter()
 router.register('groups', GroupViewSet)
 router.register('posts', PostViewSet)
+router.register(r'posts/(?P<post_id>[^/.]+)/comments', CommentViewSet, basename='comment')
 
 urlpatterns = [
     path('', include(router.urls)),
